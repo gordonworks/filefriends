@@ -68,8 +68,7 @@ def user(username):
 @login_required
 def browse(req_path):
 	BASE_DIR=os.getcwd()
-	#abs_path = os.path.join(os.getcwd(),BASE_DIR)
-	#a = os.path.dirname(os.path.abspath(__file__))
+	print(os.getcwd())
 	abs_path = os.path.join(BASE_DIR, req_path)
 	files = os.listdir(abs_path)
 	return render_template('browse.html', files=files)

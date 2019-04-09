@@ -3,7 +3,7 @@
 {% block content %}
 	<ul>
 		{% for file in files %}
-			<li><a href="{{ url_for('browse', req_path='files\{}'.format(file)) }}">{{ file }}</a></li>
+			<li><a href="{{ url_for('browse', req_path='files/{}'.format(file)) }}">{{ file }}</a></li>
 		{% endfor %}
 	</ul>
 {% endblock %}
