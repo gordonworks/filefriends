@@ -8,6 +8,7 @@ from werkzeug.urls import url_parse
 from datetime import datetime
 import os
 
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
@@ -66,9 +67,14 @@ def user(username):
 
 @app.route('/browse/<path:req_path>')
 @login_required
-def browse(req_path):
+def browse(req_path):	
 	BASE_DIR=os.getcwd()
 	print(os.getcwd())
 	abs_path = os.path.join(BASE_DIR, req_path)
+	
 	files = os.listdir(abs_path)
+	print(req_path[:5])
+	files = ['files/{}'.format(file) for file in files]
+
+	print(files)
 	return render_template('browse.html', files=files)
